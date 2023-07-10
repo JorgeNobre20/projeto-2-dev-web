@@ -10,7 +10,11 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   public addUser(user: Usuarios){
-    console.log("terste")
+    console.log(user)
+  }
+
+  public getUsers(){
+    console.log("getUsers");
   }
 
   /* public addUser(user: Usuarios){
