@@ -1,10 +1,10 @@
-package com.ufc.web.lab09;
+package com.ufc.web.projetoweb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Lab09ApplicationTests {
+class ProjetoWebApplication {
 
 	@Test
 	void contextLoads() {
