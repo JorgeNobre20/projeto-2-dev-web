@@ -42,6 +42,21 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Inválido");
         }
     }
+
+    @PostMapping("/cadastrar")
+    public ResponseEntity<String> cadastrarUsuario(@RequestBody User user){
+        user.setId(null);
+
+        String emailUser = user.getEmail();
+
+        if(this.userService.findByEmail(emailUser) == null){
+            this.userService.save(user);
+
+            return ResponseEntity.status(HttpStatus.CREATED).body("Usuário inserido com sucesso!");
+        }        
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body("Email já existente no sistema!");
+    }
 }
 
 /*
