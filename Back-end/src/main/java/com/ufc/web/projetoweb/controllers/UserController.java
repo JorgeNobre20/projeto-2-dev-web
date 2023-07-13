@@ -32,6 +32,16 @@ public class UserController {
         return new ResponseEntity<List<UserModel>>(userService.buscarTodos(), HttpStatus.OK);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody UserModel usuario) {
+        UserModel usuarioEncontrado = userService.buscarPorEmail(usuario.getEmail());
+
+        if (usuarioEncontrado != null && usuarioEncontrado.getSenha().equals(usuario.getSenha())) {
+            return ResponseEntity.ok().body("Successo!");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Inválido");
+        }
+    }
 }
 
 /*

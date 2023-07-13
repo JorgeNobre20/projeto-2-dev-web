@@ -14,6 +14,10 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    public UserModel buscarPorEmail(String email) {
+        return this.userRepository.findByEmail(email);
+    }
+
     public UserModel buscarPorId(Long id) {
         Optional<UserModel> user = this.userRepository.findById(id);
         return user.get();
